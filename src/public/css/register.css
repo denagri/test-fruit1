@@ -1,0 +1,38 @@
+.header__inner{
+
+}
+h1{
+    color: #f7d84b;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style:italic;
+}
+.register_box{
+    background-color: #f8f8f8;
+}
+h2{}
+.category_ttl-box{
+    display: flex;
+}
+.category_ttl{}
+.category_required{
+    background-color: red;
+    border: solid 1px red;
+    border-radius: 3px;
+    color: white;
+}
+.category_season{
+    color: red;
+}
+.category_btn{
+    display: flex;
+}
+.category_back-btn{
+    background-color: #e0dfde;
+    border: solid 1px #e0dfde;
+    border-radius: 3px;
+}
+.category_register-btn{
+    background-color: #f5c800;
+    border: solid 1px #f5c800;
+    border-radius: 3px;
+}

@@ -1,0 +1,74 @@
+.header__inner{
+
+}
+h1{
+    color: #f7d84b;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style:italic;
+}
+.index_box{
+    background-color: #f8f8f8;
+}
+.index_box-category{
+    display: flex;
+}
+h2{}
+.index_category-btn{
+    background-color: #ffa929;
+    border: solid 1px #ffa929;
+    border-radius: 3px;
+}
+.index_category{
+    display: flex;
+    width: 100%;
+}
+.index_search{
+    width: 30%;
+}
+.index_search-box{
+    border: solid 1px #c6bab0;
+    border-radius: 10px;
+}
+.index_search-btn{
+    background-color: #f5c800;
+    border: solid 1px #f5c800;
+    border-radius: 3px;
+}
+h3{}
+.index_search-sort{
+    border: solid 1px #c6bab0;
+    border-radius: 3px;
+}
+
+.index_category-list{
+    width: 70%;
+}
+.index_category-fruit{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.box1{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.box2{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+.box3{
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+.box4{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+.box5{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+.box6{
+    grid-column: 3/4;
+    grid-row: 2/3;
+}

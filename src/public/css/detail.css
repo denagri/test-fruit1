@@ -1,0 +1,33 @@
+.header__inner{
+
+}
+h1{
+    color: #f7d84b;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-style:italic;
+}
+.detail_box{
+    background-color: #f8f8f8;
+}
+.detail_category{}
+.category_detail{
+    display: flex;
+}
+.category_detail-box{}
+.category_detail-ttl{}
+.detail_button{
+    display: flex;
+}
+.detail_back-btn{
+    background-color: #e0dfde;
+    border: solid 1px #e0dfde;
+    border-radius: 3px;
+}
+.detail_change-btn{
+    background-color: #f5c800;
+    border: solid 1px #f5c800;
+    border-radius: 3px;
+}
+.detail_delete-btn{
+    color: red;
+}
