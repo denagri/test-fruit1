@@ -53,6 +53,13 @@ label{
 .category_detail-ttl-explain{
     margin: 10px 0;
 }
+.error{
+    color: red;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    margin: 0 20px;
+}
 .textbox{
     width: 100%;
     border: solid 1px #f0f0f0;

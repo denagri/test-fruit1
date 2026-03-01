@@ -37,6 +37,6 @@ class DetailController extends Controller
         $product=Product::findOrFail($id);
         $product->seasons()->detach();
         $product->delete();
-        return redirect('/products');
+        return redirect()->route('products.index');
     }
 }

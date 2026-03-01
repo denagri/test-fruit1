@@ -42,7 +42,7 @@
                 <div class="category_ttl">商品画像</div>
                 <div class="category_required">必須</div>
             </div>
-            <input type="file" name="attachment">
+            <input type="file" name="image">
             @error('image')
             <div class="error">
             {{$message}}

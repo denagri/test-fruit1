@@ -34,3 +34,15 @@ php artisan db:seed
 ![alt text](<スクリーンショット 2026-02-24 054835.png>)
 
 # URL
+*商品一覧
+http://localhost/products
+*商品詳細
+http://localhost/products/detail{productId}
+*商品更新
+http://localhost/products/{productID}/update
+*商品登録
+http://localhost/products/register
+*検索
+http://localhost/products/search
+*削除
+http://localhost/products/{productID}/delete

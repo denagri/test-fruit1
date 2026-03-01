@@ -26,8 +26,8 @@ class DetailRequest extends FormRequest
         return [
             'name'=>'required',
             'price' =>['required','integer','between:0,10000'],
-            'image' =>['required','file','mimes:png,jpeg'],
-            'season' =>['choice'],
+            'image' =>['nullable','file','mimes:png,jpeg'],
+            'seasons' =>['required'],
             'description' =>['required','max:120']
         ];
     }
@@ -38,9 +38,8 @@ class DetailRequest extends FormRequest
             'price.required'=>'値段を入力してください',
             'price.integer'=>'数値で入力してください',
             'price.between'=>'0～10000円以内で入力してください',
-            'image.required'=>'画像を登録してください',
             'image.mimes'=>'「.png」または「.jpeg」形式でアップロードしてください',
-            'seasons.choice'=>'季節を選択してください',
+            'seasons.required'=>'季節を選択してください',
             'description.required'=>'商品説明を入力してください',
             'description.max'=>'120文字以内で入力してください',
         ];

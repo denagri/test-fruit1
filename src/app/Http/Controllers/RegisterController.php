@@ -27,9 +27,9 @@ class RegisterController extends Controller
             'image'=>$imagePath,
             'description'=>$request->description,
             ]);
-            if($request->has('season_ids')){
-               $product->seasons()->attach($request->input('season_ids'));
+            if($request->has('seasons')){
+               $product->seasons()->attach($request->input('seasons'));
             }
-        return redirect()->route('index');
+        return redirect()->route('products.index');
     }
 }
