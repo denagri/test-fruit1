@@ -1,3 +1,6 @@
+body{
+    color: #767676;
+}
 .header__inner{
     height: 40px;
 }
@@ -22,6 +25,7 @@ main{
 }
 .textbox{
     width: 100%;
+    border: solid 1px #f0f0f0;
 }
 .error{
     color: red;

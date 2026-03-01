@@ -1,6 +1,8 @@
 body{
     background-color: #f8f8f8;
     max-width: 1230px;
+    color: #767676;
+    height: 1vh;
 }
 .header__inner{
     height: 40px;
@@ -13,28 +15,72 @@ h1{
     margin: 0 10px;
 }
 .detail_box{
-    width: 80%;
-    margin: 0 auto;
+    width: 60%;
+    margin: 50px auto;
 }
-.detail_category{}
+.detail_category{
+    margin: 0;
+}
+.highlight{
+    color: #6db8fc;
+}
 .category_detail{
     display: flex;
 }
-.category_detail-box{}
-.category_detail-ttl{}
+.category_detail-box{
+    width: 100%;
+}
+.category_detail-ttl{
+    margin: 0 20px;
+}
+.detail_contact-name{
+    margin: 10px 20px;
+    width: 100%;
+    border: solid 1px #f0f0f0;
+}
+.detail_contact-price{
+    margin: 10px 20px;
+    width: 100%;
+    border: solid 1px #f0f0f0;
+}
+.detail_contact-season{
+    margin: 10px 20px;
+    width: 100%;
+}
+label{
+    margin-right: 20px;
+}
+.category_detail-ttl-explain{
+    margin: 10px 0;
+}
+.textbox{
+    width: 100%;
+    border: solid 1px #f0f0f0;
+}
 .detail_button{
     display: flex;
+    width: 100%;
+}
+.detail_button-box{
+    margin: 20px auto;
 }
 .detail_back-btn{
     background-color: #e0dfde;
     border: solid 1px #e0dfde;
     border-radius: 3px;
+    margin: 0 10px;
+    padding: 5px 50px;
 }
 .detail_change-btn{
     background-color: #f5c800;
     border: solid 1px #f5c800;
     border-radius: 3px;
+    padding: 5px 30px;
+}
+.detail_button-delete{
+    margin: 20px;
 }
 .detail_delete-btn{
     color: red;
+    border: none;
 }

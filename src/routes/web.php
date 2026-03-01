@@ -20,5 +20,6 @@ Route::get('/products', [IndexController::class,'index']);
 Route::get('/products/search',[IndexController::class,'search']);
 Route::get('/products/detail/{id}', [DetailController::class,'show'])->name('products.show');
 Route::put('/products/{id}/update',[DetailController::class,'update'])->name('products.update');
+Route::post('/products/{id}/delete',[DetailController::class,'destroy'])->name('products.destroy');
 Route::get('/products/register', [RegisterController::class,'index'])->name('products.register');
 Route::post('/products/register',[RegisterController::class,'store'])->name('products.store');

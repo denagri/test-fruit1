@@ -6,6 +6,7 @@ use App\Http\Controllers;
 use App\Http\Requests\DetailRequest;
 use App\Models\Product;
 use App\Models\Season;
+use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
@@ -28,7 +29,14 @@ class DetailController extends Controller
             'description'=>$request->description,
             'image'=>$imagePath,
         ]);
-        $product->seasons()->sync($request->season_ids);
+        $product->seasons()->sync($request->seasons);
         return redirect()->route('products.index');
+    }
+    public function destroy($id)
+    {
+        $product=Product::findOrFail($id);
+        $product->seasons()->detach();
+        $product->delete();
+        return redirect('/products');
     }
 }

@@ -53,15 +53,15 @@
                 <div class="category_required">必須</div>
                 <div class="category_season">複数選択可</div>
             </div>
-            <input type="checkbox" id="spring" name="seasons" value="">
+            <input type="checkbox" id="spring" name="seasons[]" value="1">
                 <label for="spring">春</label>
-            <input type="checkbox" id="summer" name="seasons" value="">
+            <input type="checkbox" id="summer" name="seasons[]" value="2">
                 <label for="summer">夏</label>
-            <input type="checkbox" id="autumn" name="seasons" value="">
-                <label for="autumn">秋<label>
-            <input type="checkbox" id="winter" name="seasons" value="">
+            <input type="checkbox" id="autumn" name="seasons[]" value="3">
+                <label for="autumn">秋</label>
+            <input type="checkbox" id="winter" name="seasons[]" value="4">
                 <label for="winter">冬</label>
-            @error('season')
+            @error('seasons')
             <div class="error">
             {{$message}}
             </div>
