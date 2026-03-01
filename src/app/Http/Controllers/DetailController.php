@@ -9,36 +9,26 @@ use App\Models\Season;
 
 class DetailController extends Controller
 {
-    // 一覧を表示する必要をあまり感じていないためindexは後々消していいかも
-    public function index()
-    {
-        $seasons=Season::all();
-        return view('detail',compact('seasons'));
-    }
     public function show($id)
     {
-        $seasons =Season::find($id);
-        return view('detail',compact('seasons'));
+        $product =Product::with('seasons')->findOrFail($id);
+        $seasons =Season::all();
+        return view('detail',compact('product','seasons'));
     }
-    public function confirm(DetailRequest $request)
+    public function update(DetailRequest $request,$id)
     {
-        $products= $request->all();
-        $season= Product::find($request->category_id);
-        return view('detail',compact('products','season'));
-    }
-    public function store(DetailRequest $request)
-    {
-        if ($request->has('back')) {
-            return redirect('index');
+        $product=Product::findOrFail($id);
+        $imagePath=$product->image;
+        if($request->hasFIle('image')){
+            $imagePath=$request->file('image')->store('products','public');
         }
-        Product::create(
-            $request->only([
-                'name',
-                'price',
-                'image',
-                'description'
-            ])
-        );
-        return view('index');
+        $product->update([
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'description'=>$request->description,
+            'image'=>$imagePath,
+        ]);
+        $product->seasons()->sync($request->season_ids);
+        return redirect()->route('products.index');
     }
 }

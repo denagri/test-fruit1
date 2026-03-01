@@ -23,33 +23,37 @@
                 +商品を追加
                 </button>
             </form>
-            <form class="index_category" action="/products/detail/product" method="get">
-                <div class="index_search">
-                    <input type="text" name="keyword" placeholder="商品名で検索" class="index_search-box" value=""/>
+            <div class="index_category">
+                <form class="index_search" action="/products/search" method="get">
+                @csrf
+                    <input type="text" name="keyword" placeholder="商品名で検索" class="index_search-box" value="{{request('keyword')}}"/>
                     <button class="index_search-btn">検索</button>
                     <h3>価格順で表示</h3>
-                    <form action="" method="get">
-                        <select name="sort">
-                            <option value="0" select disabled>価格で並び替え</option>
-                            <option value="1">高い順に表示</option>
-                            <option value="2">低い順に表示</option>
-                        </select>
-                    </form>
-                </div>
+                    <select name="sort" class="index_search-sort">
+                        <option value="0" select disabled>価格で並び替え</option>
+                        <option value="1">高い順に表示</option>
+                        <option value="2">低い順に表示</option>
+                    </select>
+                </form>
                 <div class="index_category-list">
                     <div class="index_category-fruit">
-                    <!-- ダミーデータを引っ張る -->
-                        <img src="fruits-img/banana.png" class="box1">
-                        <img src="fruits-img/grapes.png" class="box2">
-                        <img src="fruits-img/kiwi.png" class="box3">
-                        <img src="fruits-img/melon.png" class="box4">
-                        <img src="fruits-img/muscat.png" class="box5">
-                        <img src="fruits-img/orange.png" class="box6">
+                    @foreach($products as $product)
+                        <a href="/products/detail/{{ $product->id }}" class="detail-fruit">
+                            <table>
+                                <tr>
+                                    <th colspan="2" class="fruit-image"><image src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->name }}" width="250" height="180"></th>
+                                </tr>
+                                <tr class="fruit-ttl">
+                                    <td class="fruit-name">{{$product->name}}</td>
+                                    <td class="fruit-price">￥{{number_format($product->price)}}</td>
+                                </tr>
+                            </table>
+                        </a>
+                    @endforeach
                     </div>
-                    <!-- ページネーション -->
-                    {{}}
+                    {{ $products->appends(request()->query())->links('vendor.pagination.custom') }}
                 </div>
-            </form>
+            </div>
         </div>
     </main>
 </body>

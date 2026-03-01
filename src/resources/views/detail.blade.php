@@ -15,50 +15,47 @@
         </div>
     </header>
     <main>
-        <form class="detail_box" >
-            <!-- おそらくテーブルから持ってくる -->
-            <div class="detail_category">商品一覧＞キウイ</div>
-            <div class="category_detail">
-                <!-- おそらくダミーデータを引っ張る -->
-                <a href="fruits-img/kiwi.png"></a>
-                <div class="category_detail-box">
-                    <div class="category_detail-ttl">商品名</div>
-                    <input type="text" name="name" placeholder="商品名を入力" class="detail_contact-name" value=""/>
-                    <div class="form_error">
-                        @error('name')
-                        {{$message}}
-                        @enderror
-                    </div>
-                    <div class="category_detail-ttl">値段</div>
-                    <input type="text" name="price" placeholder="値段を入力" class="detail_contact-price" value=""/>
-                    <div class="form_error">
-                        @error('price')
-                        {{$message}}
-                        @enderror
-                    </div>
-                    <div class="category_detail-ttl">季節</div>
-                    <input type="checkbox" id="spring" name="seasons" value="">
-                        <label for="spring">春</label>
-                    <input type="checkbox" id="summer" name="seasons" value="">
-                        <label for="summer">夏</label>
-                    <input type="checkbox" id="autumn" name="seasons" value="">
-                        <label for="autumn">秋<label>
-                    <input type="checkbox" id="winter" name="seasons" value="">
-                        <label for="winter">冬</label>
-                    <div class="form_error">
-                        @error('season')
-                        {{$message}}
-                        @enderror
+        <form class="detail_box" action="{{route('products.update',$product->id) }}" method= "post" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="detail_category">商品一覧＞{{ $product->name }} </div>
+                <div class="category_detail">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" width="250" height="170">
+                    <div class="category_detail-box">
+                        <div class="category_detail-ttl">商品名</div>
+                        <input type="text" name="name" value="{{ old('name',$product->name) }}" class="detail_contact-name" />
+                        <div class="form_error">
+                            @error('name')
+                            {{$message}}
+                            @enderror
+                        </div>
+                        <div class="category_detail-ttl">値段</div>
+                        <input type="number" name="price" value="{{ old('price',$product->price) }}" class="detail_contact-price" />
+                        <div class="form_error">
+                            @error('price')
+                            {{$message}}
+                            @enderror
+                        </div>
+                        <div class="category_detail-ttl">季節</div>
+                        @foreach($seasons as $season)
+                        <label><input type="checkbox" name="season_ids[]" value="{{season->id}}"
+                        {{ $product->seasons->contains($season->id)?'checked':''}}>{{ $season->name }}
+                        </label>
+                        @endforeach
+                        <div class="form_error">
+                            @error('season')
+                            {{$message}}
+                            @enderror
+                        </div>
                     </div>
                 </div>
-            </div>
-            <input type="file" name="attachment">
-            <div class="category_detail-ttl">商品説明</div>
-                <textarea name="description" placeholder="商品の説明を入力" class="textbox" cols="30" rows="10"></textarea>
-            <div class="detail_button">
-                <button class="detail_back-btn">戻る</button>
-                <button class="detail_change-btn">変更を保存</button>
-                <button class="detail_delete-btn">ゴミ箱</button>
+                <div class="category_detail-ttl">商品説明</div>
+                <textarea name="description" class="textbox" cols="30" rows="10">{{ old('description',$product->description) }}</textarea>
+                <div class="detail_button">
+                    <button type="button" onclick="location.href='/products'" class="detail_back-btn">戻る</button>
+                    <button class="detail_change-btn" type="submit">変更を保存</button>
+                    <button class="detail_delete-btn">▥</button>
+                </div>
             </div>
         </form>
     </main>

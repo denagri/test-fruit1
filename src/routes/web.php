@@ -17,5 +17,8 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/products', [IndexController::class,'index']);
-Route::get('/products/detail/product', [DetailController::class,'index']);
-Route::get('/products/register', [RegisterController::class,'index']);
+Route::get('/products/search',[IndexController::class,'search']);
+Route::get('/products/detail/{id}', [DetailController::class,'show'])->name('products.show');
+Route::put('/products/{id}/update',[DetailController::class,'update'])->name('products.update');
+Route::get('/products/register', [RegisterController::class,'index'])->name('products.register');
+Route::post('/products/register',[RegisterController::class,'store'])->name('products.store');

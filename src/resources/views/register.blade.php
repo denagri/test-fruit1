@@ -15,7 +15,8 @@
         </div>
     </header>
     <main>
-        <div class="register_box">
+        <form class="register_box" action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
             <h2>商品登録</h2>
             <div class="category_ttl-box">
                 <div class="category_ttl">商品名</div>
@@ -23,7 +24,9 @@
             </div>
             <input type="text" name="name" placeholder="商品名を入力" class="textbox" value=""/>
             @error('name')
+            <div class="error">
             {{$message}}
+            </div>
             @enderror
             <div class="category_ttl-box">
                 <div class="category_ttl">値段</div>
@@ -31,7 +34,9 @@
             </div>
             <input type="text" name="price" placeholder="値段を入力" class="textbox" value=""/>
             @error('price')
+            <div class="error">
             {{$message}}
+            </div>
             @enderror
             <div class="category_ttl-box">
                 <div class="category_ttl">商品画像</div>
@@ -39,7 +44,9 @@
             </div>
             <input type="file" name="attachment">
             @error('image')
+            <div class="error">
             {{$message}}
+            </div>
             @enderror
             <div class="category_ttl-box">
                 <div class="category_ttl">季節</div>
@@ -55,7 +62,9 @@
             <input type="checkbox" id="winter" name="seasons" value="">
                 <label for="winter">冬</label>
             @error('season')
+            <div class="error">
             {{$message}}
+            </div>
             @enderror
                 <div class="category_ttl-box">
                 <div class="category_ttl">商品説明</div>
@@ -63,13 +72,15 @@
             </div>
             <textarea name="description" placeholder="商品の説明を入力" class="textbox" cols="30" rows="10"></textarea>
             @error('description')
+            <div class="error">
             {{$message}}
+            </div>
             @enderror
             <div class="category_btn">
-                <button class="category_back-btn">戻る</button>
-                <button class="category_register-btn">登録</button>
+                <button type="button" onclick="location.href='/products'" class="category_back-btn">戻る</button>
+                <input class="category_register-btn" type="submit" value="登録" name="register">
             </div>
-        </div>
+        </form>
     </main>
 </body>
 </html>
