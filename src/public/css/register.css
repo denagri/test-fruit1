@@ -1,8 +1,10 @@
 body{
-    color: #767676;
+    background-color: #f8f8f8;
+    width: 100vw;
 }
 .header__inner{
     height: 40px;
+    background-color: white;
 }
 h1{
     color: #f7d84b;
@@ -11,7 +13,6 @@ h1{
     margin: 0 10px;
 }
 main{
-    background-color: #f8f8f8;
     max-width: 1230px;
     padding: 15px 0;
 }

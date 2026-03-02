@@ -16,7 +16,7 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         $products=[
-            [    
+            [
             'name'=>'キウイ',
             'price'=>'800',
             'image'=>'products/kiwi.png',

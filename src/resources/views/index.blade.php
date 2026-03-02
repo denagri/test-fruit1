@@ -29,11 +29,19 @@
                     <input type="text" name="keyword" placeholder="商品名で検索" class="index_search-box" value="{{request('keyword')}}"/>
                     <button class="index_search-btn">検索</button>
                     <h3>価格順で表示</h3>
-                    <select name="sort" class="index_search-sort">
-                        <option value="0" select disabled>価格で並び替え</option>
-                        <option value="1">高い順に表示</option>
-                        <option value="2">低い順に表示</option>
+                    <select name="sort" class="index_search-sort" id="sort-select" onchange="this.form.submit()">
+                        <option value="">価格で並び替え</option>
+                        <option value="high"{{ request('sort') == 'high' ? 'selected' : '' }}>高い順に表示</option>
+                        <option value="low"{{ request('sort') == 'low' ? 'selected' : '' }}>低い順に表示</option>
                     </select>
+                    <div id="chip-container" class="sort_chip-container">
+                        @if(request('sort'))
+                            <div class="chip">
+                                {{ request('sort') == 'high' ? '高い順に表示' : '低い順に表示' }}
+                                <span class="close-btn" id="clear-sort">&times;</span>
+                            </div>
+                        @endif
+                    </div>
                 </form>
                 <div class="index_category-list">
                     <div class="index_category-fruit">
@@ -56,5 +64,16 @@
             </div>
         </div>
     </main>
+<script>
+    const clearBtn = document.getElementById('clear-sort');
+    const select = document.getElementById('sort-select');
+
+    if (clearBtn) {
+        clearBtn.onclick = function() {
+            select.value = "";
+            select.form.submit();
+        };
+    }
+</script>
 </body>
 </html>

@@ -61,6 +61,26 @@ h3{
     padding: 10px;
     margin: 5px;
 }
+.sort_chip-container{
+    border: solid 1px #f5c800;
+    border-radius: 15px;
+    width: 50%;
+}
+.chip{
+    margin-left: 10px;
+    display: flex;
+}
+.close-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #f5c800;
+    border: solid 1px #f5c800;
+    height: 20px;
+    width: 20px;
+    margin: 3px 0 3px 5px;
+}
 .index_category-list{
     width: 100%;
 }
