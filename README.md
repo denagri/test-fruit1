@@ -2,7 +2,7 @@
 # 環境構築
 Dockerビルド
 ```
-git clone git@github.com:denagri/test-fruit.git
+git clone git@github.com:denagri/test-fruit1.git
 docker-compose up -d --build
 ```
 laravel環境構築(上から順に構築していく)
@@ -31,7 +31,7 @@ php artisan db:seed
 * mysql 11.8.3
 
 # ER図
-![alt text](<スクリーンショット 2026-02-24 054835.png>)
+![alt text](<スクリーンショット 2026-03-02 205035.png>)
 
 # URL
 *商品一覧
